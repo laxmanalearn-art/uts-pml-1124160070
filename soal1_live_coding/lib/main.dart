@@ -33,6 +33,48 @@ class ProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
+        centerTitle: true,
+        title: Text('Profil Mahasiswa'),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.edit))],
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.deepOrange,
+                  child: Icon(Icons.person, size: 70, color: Colors.white),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Nama : Bayu Laksmana',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'NIM : 1124160070',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                SizedBox(height: 5),
+                Text(
+                  'Kelas : TI 24 SE SH',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
