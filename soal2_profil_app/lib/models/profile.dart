@@ -20,4 +20,28 @@ class Profile {
     required this.github,
     required this.photo,
   });
+
+  Profile CopyWith({
+    String? nama,
+    String? nim,
+    String? kelas,
+    String? prodi,
+    String? bio,
+    String? email,
+    String? phone,
+    String? github,
+    String? photo,
+  }) {
+    return Profile(
+      nama: nama ?? this.nama,
+      nim: nim ?? this.nim,
+      kelas: kelas ?? this.kelas,
+      prodi: prodi ?? this.prodi,
+      bio: bio ?? this.bio,
+      email: email ?? this.email,
+      phone: phone ?? this.phone,
+      github: github ?? this.github,
+      photo: photo ?? this.photo,
+    );
+  }
 }
