@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/profile_page.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -40,17 +42,8 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.dark,
         ),
       ),
-      themeMode: _themeMode,
+      themeMode: ThemeMode.system,
       home: const ProfilePage(),
     );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
