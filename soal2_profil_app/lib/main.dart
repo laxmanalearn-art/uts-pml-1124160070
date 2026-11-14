@@ -4,10 +4,22 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  void _changeTheme(ThemeMode mode) {
+    setState(() {
+      _themeMode = mode;
+    });
+  }
+
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profil Mahasiswa',
@@ -28,7 +40,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       home: const ProfilePage(),
     );
   }
