@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:soal2_profil_app/widgets/info_tile.dart';
 import 'package:soal2_profil_app/models/profile.dart';
 
+import 'edit_profile_page.dart';
+
 class ProfilePage extends StatefulWidget {
   const new({super.key});
 
@@ -21,9 +23,36 @@ class _ProfilePageState extends State<ProfilePage> {
     github: 'laxmanalearn-art',
     photo: 'assets/images/profile.jpg',
   );
+  Future<void> _openEditProfile() async {
+    final updatedProfile = await Navigator.push<Profile>(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditProfilePage(profile: profile),
+      ),
+    );
+    if (!mounted) return;
 
+    if (updatedProfile != null) {
+      setState(() {
+        profile = updatedProfile;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Profil Mahasiswa'),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: _openEditProfile,
+            icon: Icon(Icons.edit),
+            tooltip: 'Edit Profil',
+          ),
+        ],
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

@@ -21,7 +21,7 @@ class Profile {
     required this.photo,
   });
 
-  Profile CopyWith({
+  Profile copyWith({
     String? nama,
     String? nim,
     String? kelas,

@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profil Mahasiswa',
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
           brightness: Brightness.dark,
         ),
       ),
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       home: const ProfilePage(),
     );
   }
