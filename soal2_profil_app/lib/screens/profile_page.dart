@@ -6,7 +6,9 @@ import 'about_page.dart';
 import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
-  const new({super.key});
+  final ValueChanged<ThemeMode> onThemeChanged;
+
+  const ProfilePage({super.key, required this.onThemeChanged});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -53,6 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
             tooltip: 'Edit Profil',
           ),
         ],
+        backgroundColor: Colors.blue.shade700,
       ),
       drawer: Drawer(
         child: ListView(
@@ -97,6 +100,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
+              },
+            ),
+            const Divider(),
+
+            SwitchListTile(
+              secondary: const Icon(Icons.dark_mode),
+              title: const Text('Dark Mode'),
+              value: Theme.of(context).brightness == Brightness.dark,
+              onChanged: (isDark) {
+                widget.onThemeChanged(
+                  isDark ? ThemeMode.dark : ThemeMode.light,
                 );
               },
             ),
