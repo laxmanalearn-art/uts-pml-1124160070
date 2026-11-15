@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:soal2_profil_app/widgets/info_tile.dart';
 import 'package:soal2_profil_app/models/profile.dart';
 
+import 'about_page.dart';
 import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -52,6 +53,60 @@ class _ProfilePageState extends State<ProfilePage> {
             tooltip: 'Edit Profil',
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(Icons.account_circle, size: 50, color: Colors.white),
+                  SizedBox(height: 10),
+                  Text(
+                    'Bayu Laksmana',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Mahasiswa Teknik Informatika',
+                    style: TextStyle(color: Colors.white70),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profil Saya'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text('About Me'),
+              onTap: () {
+                Navigator.pop(context);
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutPage()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _openEditProfile,
+        icon: const Icon(Icons.edit),
+        label: const Text('Edit Profil'),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
