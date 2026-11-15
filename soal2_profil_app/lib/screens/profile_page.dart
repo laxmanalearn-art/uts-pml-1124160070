@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     nim: '1124160070',
     kelas: 'TI 24 SE SH',
     prodi: 'Teknik Informatika',
-    bio: 'Saya Seorang Mahasiswa yang........',
+    bio: 'Saya Seorang Mahasiswa Global Institute',
     email: 'baylaxmana@gmail.com',
     phone: '081281152466',
     github: 'laxmanalearn-art',
@@ -67,7 +67,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Icon(Icons.account_circle, size: 50, color: Colors.white),
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage('assets/images/profile.jpg'),
+                  ),
                   SizedBox(height: 10),
                   Text(
                     'Bayu Laksmana',

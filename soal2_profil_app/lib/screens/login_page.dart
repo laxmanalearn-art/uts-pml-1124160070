@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:soal2_profil_app/screens/profile_page.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final ValueChanged<ThemeMode> onThemeChanged;
+
+  const LoginPage({super.key, required this.onThemeChanged});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,6 +18,8 @@ class _LoginPageState extends State<LoginPage> {
 
   bool _isLoading = false;
   bool _obscurePassword = true;
+  static const String _correctEmail = 'bayu@gmail.com';
+  static const String _correctPassword = 'bayu123';
 
   void _login() async {
     if (!_formKey.currentState!.validate()) return;
@@ -28,16 +32,29 @@ class _LoginPageState extends State<LoginPage> {
 
     if (!mounted) return;
 
+    final email = _emailController.text.trim().toLowerCase();
+    final password = _passwordController.text;
+
     setState(() {
       _isLoading = false;
     });
 
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ProfilePage(onThemeChanged: (themeMode) {}),
-      ),
-    );
+    if (email == _correctEmail && password == _correctPassword) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>
+              ProfilePage(onThemeChanged: widget.onThemeChanged),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Email atau password salah!'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   @override

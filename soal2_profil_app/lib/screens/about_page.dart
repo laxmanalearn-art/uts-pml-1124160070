@@ -16,9 +16,9 @@ class AboutPage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           const Text(
-            'Halo! Saya seorang mahasiswa Teknik Informatika '
-            'yang tertarik mempelajari teknologi dan pengembangan '
-            'aplikasi mobile.',
+            'Halo! Saya Bayu Laksmana, seorang mahasiswa Teknik Informatika '
+            'Di Global Institute of Technology and Business'
+            'Saya belajar di Jurusan Software Enginneering',
             textAlign: TextAlign.justify,
           ),
 
@@ -34,21 +34,16 @@ class AboutPage extends StatelessWidget {
               children: const [
                 ListTile(
                   leading: Icon(Icons.code),
-                  title: Text('Dart'),
-                  subtitle: Text('Pemrograman aplikasi'),
+                  title: Text('Web Development'),
+                  subtitle: Text('Pemrograman Web'),
                 ),
                 Divider(height: 1),
                 ListTile(
                   leading: Icon(Icons.phone_android),
-                  title: Text('Flutter'),
+                  title: Text('Mobile App Development'),
                   subtitle: Text('Pengembangan aplikasi mobile'),
                 ),
                 Divider(height: 1),
-                ListTile(
-                  leading: Icon(Icons.web),
-                  title: Text('HTML & CSS'),
-                  subtitle: Text('Dasar pengembangan web'),
-                ),
               ],
             ),
           ),
@@ -95,6 +90,12 @@ class AboutPage extends StatelessWidget {
                   leading: Icon(Icons.school),
                   title: Text('Global Institute of Technology and Business'),
                   subtitle: Text('Program Studi Teknik Informatika'),
+                ),
+                Divider(height: 1),
+                ListTile(
+                  leading: Icon(Icons.school),
+                  title: Text('SMK Bina Am Ma`mur Kab.Tangerang'),
+                  subtitle: Text('Multimedia'),
                 ),
               ],
             ),
